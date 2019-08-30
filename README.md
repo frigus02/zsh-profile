@@ -1,6 +1,8 @@
 # zsh profile
 
-## Dependencies
+This contains my personal zsh profile.
+
+## Prerequisites
 
 - [zsh-completions](https://github.com/zsh-users/zsh-completions)
 
@@ -32,3 +34,10 @@
   brew tap Yleisradio/terraforms
   brew install chtf
   ```
+
+## Usage
+
+```
+make install
+make completions
+```
