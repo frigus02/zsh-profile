@@ -1,6 +1,6 @@
 [submodule "pure"]
-	path = pure
+	path = modules/pure
 	url = https://github.com/sindresorhus/pure.git
 [submodule "zsh-nvm"]
-	path = zsh-nvm
+	path = modules/zsh-nvm
 	url = https://github.com/lukechilds/zsh-nvm.git
