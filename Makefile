@@ -1,8 +1,8 @@
 .DEFAULT_GOAL:=help
 
 .PHONY: install
-install: pure zsh-nvm ## Installs this zsh config
-	ln -sF "$$PWD/zshrc" "$$HOME/.zshrc"
+install: pure ## Installs this zsh config
+	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
 
 .PHONY: zfunctions
 zfunctions:
@@ -12,10 +12,6 @@ zfunctions:
 pure: zfunctions ## Installs the pure prompt
 	./scripts/add-kube-ps1-to-pure.sh "$$PWD/modules/pure/pure.zsh" > "$$HOME/.zfunctions/prompt_pure_setup"
 	cp "$$PWD/modules/pure/async.zsh" "$$HOME/.zfunctions/async"
-
-.PHONY: zsh-nvm
-zsh-nvm: zfunctions ## Installs the pure zsh-nvm
-	cp "$$PWD/modules/zsh-nvm/zsh-nvm.plugin.zsh" "$$HOME/.zfunctions/zsh-nvm"
 
 .PHONY: completions
 completions: zfunctions ## Install other command completions

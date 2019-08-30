@@ -5,6 +5,7 @@
 #
 
 fpath=("$HOME/.zfunctions" $fpath)
+scriptpath=$(dirname "$0")
 
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -13,6 +14,9 @@ autoload -U compinit && compinit
 # Pure prompt
 autoload -U promptinit && promptinit
 prompt pure
+
+source "$scriptpath/plugins/prompt-exit-status.zsh"
+PROMPT='$(prompt_exit_status) '$PROMPT
 
 # Word style: directory delimiter
 autoload -U select-word-style
@@ -68,7 +72,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # NVM
 export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
-source "$HOME/.zfunctions/zsh-nvm"
+source "$scriptpath/modules/zsh-nvm/zsh-nvm.plugin.zsh"
 
 # Android
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
