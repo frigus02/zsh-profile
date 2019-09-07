@@ -8,7 +8,7 @@ fpath=("$HOME/.zfunctions" $fpath)
 scriptpath=$(dirname "$0")
 
 # Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=("$scriptpath/modules/zsh-completions/src" $fpath)
 autoload -U compinit && compinit
 
 # Pure prompt
@@ -23,10 +23,10 @@ autoload -U select-word-style
 select-word-style bash
 
 # zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$scriptpath/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # zsh-history-substring-search
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$scriptpath/modules/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -60,6 +60,7 @@ alias gst='git status'
 
 # ls
 export CLICOLOR=1
+alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 
@@ -87,8 +88,10 @@ decompile() {
 }
 
 # Terraform
-source "/usr/local/share/chtf/chtf.sh"
-chtf 0.11.14
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+	source /usr/local/share/chtf/chtf.sh
+	chtf 0.11.14
+fi
 
 # Kubernetes
 alias k=kubectl
