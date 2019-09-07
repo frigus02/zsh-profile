@@ -1,16 +1,21 @@
 .DEFAULT_GOAL:=help
 
 .PHONY: install
-install: pure ## Installs this zsh config
+install: modules pure ## Installs this zsh config
 	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
+
+.PHONY: modules
+modules:
+	git submodule init
+	git submodule update
 
 .PHONY: zfunctions
 zfunctions:
 	mkdir -p "$$HOME/.zfunctions"
 
 .PHONY: pure
-pure: zfunctions ## Installs the pure prompt
-	./scripts/add-kube-ps1-to-pure.sh "$$PWD/modules/pure/pure.zsh" > "$$HOME/.zfunctions/prompt_pure_setup"
+pure: modules zfunctions
+	./scripts/add-kube-ps1-to-pure.sh > "$$HOME/.zfunctions/prompt_pure_setup"
 	cp "$$PWD/modules/pure/async.zsh" "$$HOME/.zfunctions/async"
 
 .PHONY: completions
