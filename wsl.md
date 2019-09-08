@@ -107,4 +107,24 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl completion zsh > ~/.zfunctions/_kubectl
+mkdir ~/.kube
+cp /c/Users/<WINDOWS_USER_NAME>/.kube/config ~/.kube/config
+```
+
+### stern
+
+```
+curl -L https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64 -o stern
+chmod +x ./stern
+sudo mv ./stern /usr/local/bin/stern
+stern --completion zsh > ~/.zfunctions/_stern
+```
+
+### kyml
+
+```
+curl -L https://github.com/frigus02/kyml/releases/download/v20190906/kyml_20190906_linux_amd64 -o kyml
+chmod +x ./kyml
+sudo mv ./kyml /usr/local/bin/kyml
+kyml completion zsh > ~/.zfunctions/_kyml
 ```
