@@ -16,3 +16,6 @@
 [submodule "kube-ps1"]
 	path = modules/kube-ps1
 	url = https://github.com/jonmosco/kube-ps1.git
+[submodule "zsh-autosuggestions"]
+	path = modules/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git

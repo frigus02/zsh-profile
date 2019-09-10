@@ -22,7 +22,12 @@ PROMPT='$(prompt_exit_status) '$PROMPT
 autoload -U select-word-style
 select-word-style bash
 
+# zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
+source "$scriptpath/modules/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
 # zsh-syntax-highlighting
+export ZSH_HIGHLIGHT_MAXLENGTH=100
 source "$scriptpath/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # zsh-history-substring-search
