@@ -65,7 +65,6 @@ alias gst='git status'
 
 # ls
 export CLICOLOR=1
-alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 
@@ -95,7 +94,7 @@ decompile() {
 # Terraform
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
 	source /usr/local/share/chtf/chtf.sh
-	chtf 0.11.14
+	chtf 0.12.18
 fi
 
 # Kubernetes
