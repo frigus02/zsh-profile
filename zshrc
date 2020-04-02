@@ -94,7 +94,7 @@ decompile() {
 # Terraform
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
 	source /usr/local/share/chtf/chtf.sh
-	chtf 0.12.18
+	chtf 0.12.20
 fi
 
 # Kubernetes
