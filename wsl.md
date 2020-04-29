@@ -14,7 +14,7 @@ sudo apt upgrade -y
 ### Install
 
 ```
-sudo apt install -y zsh
+sudo apt install -y build-essential zsh
 ```
 
 ### Set as default shell
