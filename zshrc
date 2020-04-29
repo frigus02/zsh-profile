@@ -111,7 +111,7 @@ fi
 export GPG_TTY=$TTY
 
 # Editor
-export EDITOR='code -w'
+export EDITOR=nvim
 
 # Todo
 alias t=todo.sh
