@@ -69,7 +69,9 @@ alias ll='ls -l'
 alias la='ls -a'
 
 # Go
-export PATH="$PATH:$(go env GOPATH)/bin"
+if command -v go >/dev/null; then
+	export PATH="$PATH:$(go env GOPATH)/bin"
+fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -112,6 +114,3 @@ export GPG_TTY=$TTY
 
 # Editor
 export EDITOR=nvim
-
-# Todo
-alias t=todo.sh
