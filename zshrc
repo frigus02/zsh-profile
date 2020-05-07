@@ -113,4 +113,7 @@ fi
 export GPG_TTY=$TTY
 
 # Editor
-export EDITOR=nvim
+if command -v nvim >/dev/null; then
+	alias vim="nvim"
+fi
+export EDITOR=vim
