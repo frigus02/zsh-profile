@@ -69,16 +69,6 @@ sudo usermod -aG docker $USER
 
 2. Sign out and back in on Windows.
 
-### Connect to Docker Desktop
-
-1. Docker on Windows / Settings / Generate: enable "Expose daemon on tcp://localhost:2375 without TLS"
-
-2. Tell WSL where to look by adding this to `~/.bashrc`:
-
-   ```sh
-   export DOCKER_HOST=tcp://localhost:2375
-   ```
-
 ## Other
 
 ### git
