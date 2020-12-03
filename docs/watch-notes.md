@@ -9,24 +9,11 @@ I like to keep my notes in text files in a folder on my laptop. This describes a
 
 ## Steps
 
-1. Install `vcsh` and initialize repository
+1. Initialize repository
 
    ```sh
-   brew install vcsh
-   vcsh init notes
-   vcsh notes add "$HOME/Downloads/notes"
-   vcsh notes commit -m init
-   ```
-
-1. Create .gitignore
-
-   ```sh
-   cat <<EOF >"$HOME/.gitignore.d/notes"
-   *
-   !/Downloads
-   !/Downloads/notes
-   !/Downloads/notes/*
-   EOF
+   cd "$HOME/Downloads/notes"
+   git init
    ```
 
 1. Create launch agent configuration. Create a file with the following content and save it in `$HOME/Library/LaunchAgents/me.kuehle.watchnotes.plist`:
@@ -42,7 +29,7 @@ I like to keep my notes in text files in a folder on my laptop. This describes a
    	<array>
    		<string>/bin/sh</string>
    		<string>-ec</string>
-   		<string>if [ -n "$(/usr/local/bin/vcsh notes status --porcelain --ignore-submodules -unormal .)" ]; then /usr/local/bin/vcsh notes add .; /usr/local/bin/vcsh notes commit --no-gpg-sign -m "$(/usr/local/bin/vcsh notes status --porcelain)"; fi</string>
+   		<string>if [ -n "$(/usr/bin/git status --porcelain --ignore-submodules -unormal .)" ]; then /usr/bin/git add .; /usr/bin/git commit --no-gpg-sign -m "$(/usr/bin/git status --porcelain)"; fi</string>
    	</array>
    	<key>WatchPaths</key>
    	<array>
@@ -61,3 +48,5 @@ I like to keep my notes in text files in a folder on my laptop. This describes a
    ```sh
    launchctl load "$HOME/Library/LaunchAgents/me.kuehle.watchnotes.plist"
    ```
+
+1. This will fail until `/bin/sh` has has permissions to access the folder. You can give permissions by going to _System Preferences -> Security and Privacy -> Full Disk Access_ and adding `/bin/sh` to the list.
