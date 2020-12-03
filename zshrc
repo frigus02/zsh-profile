@@ -82,15 +82,17 @@ export NVM_LAZY_LOAD=true
 source "$scriptpath/modules/zsh-nvm/zsh-nvm.plugin.zsh"
 
 # Android
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-export ANDROID_SDK_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools/bin"
-alias emulator=$HOME/Library/Android/sdk/tools/emulator
-decompile() {
-	source=$1
-	destination=$2
-	mkdir "$destination"
-	java -cp "/Applications/Android Studio.app/Contents/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler "$source" "$destination"
+enable_android() {
+	export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+	export ANDROID_SDK_HOME="$HOME/Library/Android/sdk"
+	export PATH="$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools/bin"
+	alias emulator=$HOME/Library/Android/sdk/tools/emulator
+	android_decompile() {
+		source=$1
+		destination=$2
+		mkdir "$destination"
+		java -cp "/Applications/Android Studio.app/Contents/plugins/java-decompiler/lib/java-decompiler.jar" org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler "$source" "$destination"
+	}
 }
 
 # Terraform
