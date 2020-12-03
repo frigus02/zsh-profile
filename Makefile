@@ -1,7 +1,8 @@
 .DEFAULT_GOAL:=help
 
 .PHONY: install
-install: modules pure ## Installs this zsh config
+install: modules ## Installs this zsh config
+	brew install starship
 	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
 
 .PHONY: modules
@@ -12,11 +13,6 @@ modules:
 .PHONY: zfunctions
 zfunctions:
 	mkdir -p "$$HOME/.zfunctions"
-
-.PHONY: pure
-pure: modules zfunctions
-	./scripts/add-kube-ps1-to-pure.sh > "$$HOME/.zfunctions/prompt_pure_setup"
-	cp "$$PWD/modules/pure/async.zsh" "$$HOME/.zfunctions/async"
 
 .PHONY: completions
 completions: zfunctions ## Install other command completions

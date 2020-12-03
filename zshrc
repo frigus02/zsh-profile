@@ -11,12 +11,8 @@ scriptpath=$(dirname "$0")
 fpath=("$scriptpath/modules/zsh-completions/src" $fpath)
 autoload -U compinit && compinit
 
-# Pure prompt
-autoload -U promptinit && promptinit
-prompt pure
-
-source "$scriptpath/plugins/prompt-exit-status.zsh"
-PROMPT='$(prompt_exit_status) '$PROMPT
+# Prompt
+eval "$(starship init zsh)"
 
 # Word style: directory delimiter
 autoload -U select-word-style
