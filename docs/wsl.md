@@ -40,35 +40,6 @@ chmod -R 755 ~/zsh-profile/modules
 chmod -R 755 ~/.zfunctions
 ```
 
-## Docker
-
-Based on: https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly
-
-### Install
-
-```
-sudo apt update
-sudo apt install docker.io
-sudo usermod -aG docker $USER
-```
-
-### Fix volume mounting
-
-1. Mount Windows file system under `/c` instead of `/mnt/c`.
-
-   ```
-   sudo vi /etc/wsl.conf
-   ```
-
-   Make it look like this and save the file:
-
-   ```
-   [automount]
-   root = /
-   ```
-
-2. Sign out and back in on Windows.
-
 ## Other
 
 ### git
