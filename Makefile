@@ -1,9 +1,11 @@
-.DEFAULT_GOAL:=help
+.DEFAULT_GOAL := help
+PKG := $(shell command -v brew >/dev/null && echo "brew install" || echo "echo PLEASE INSTALL")
 
 .PHONY: install
 install: modules ## Installs this zsh config
-	brew install starship
-	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
+	$(PKG) starship
+	$(PKG) fzf
+	#./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
 
 .PHONY: modules
 modules:

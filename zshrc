@@ -113,3 +113,9 @@ if command -v nvim >/dev/null; then
 	alias vim=nvim
 fi
 export EDITOR=vim
+
+# fzf
+if [[ -d /usr/share/doc/fzf/examples/ ]]; then
+	source /usr/share/doc/fzf/examples/key-bindings.zsh
+	source /usr/share/doc/fzf/examples/completion.zsh
+fi
