@@ -23,8 +23,7 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
 source "$scriptpath/modules/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-syntax-highlighting
-export ZSH_HIGHLIGHT_MAXLENGTH=100
-source "$scriptpath/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$scriptpath/modules/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # zsh-history-substring-search
 source "$scriptpath/modules/zsh-history-substring-search/zsh-history-substring-search.zsh"
@@ -111,6 +110,6 @@ export GPG_TTY=$TTY
 
 # Editor
 if command -v nvim >/dev/null; then
-	alias vim="nvim"
+	alias vim=nvim
 fi
 export EDITOR=vim
