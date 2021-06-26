@@ -119,3 +119,6 @@ if [[ -d /usr/share/doc/fzf/examples/ ]]; then
 	source /usr/share/doc/fzf/examples/key-bindings.zsh
 	source /usr/share/doc/fzf/examples/completion.zsh
 fi
+if [[ -f "$HOME/.fzf.zsh" ]]; then
+	source "$HOME/.fzf.zsh"
+fi
