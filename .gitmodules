@@ -13,3 +13,6 @@
 [submodule "modules/fast-syntax-highlighting"]
 	path = modules/fast-syntax-highlighting
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
+[submodule "modules/curl-history"]
+	path = modules/curl-history
+	url = https://github.com/frigus02/curl-history.git

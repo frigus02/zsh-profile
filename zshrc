@@ -122,3 +122,6 @@ fi
 if [[ -f "$HOME/.fzf.zsh" ]]; then
 	source "$HOME/.fzf.zsh"
 fi
+
+# curl-history
+source "$scriptpath/modules/curl-history/curl-history.sh"
