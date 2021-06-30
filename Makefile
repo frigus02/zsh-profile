@@ -5,7 +5,7 @@ PKG := $(shell command -v brew >/dev/null && echo "brew install" || echo "echo P
 install: modules ## Installs this zsh config
 	$(PKG) starship
 	$(PKG) fzf
-	#./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
+	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
 
 .PHONY: modules
 modules:
