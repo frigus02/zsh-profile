@@ -12,7 +12,14 @@ fpath=("$scriptpath/modules/zsh-completions/src" $fpath)
 autoload -U compinit && compinit
 
 # Prompt
-eval "$(starship init zsh)"
+PROMPT='
+%F{cyan}%~%f
+%(?.%F{green}.%F{red})❯%f '
+if command -v starship >/dev/null; then
+	eval "$(starship init zsh)"
+elif [[ "$FRIGUS02_ZSH_PROFILE_DEBUG" != false ]]; then
+	echo "required for prompt: starship"
+fi
 
 # Word style: directory delimiter
 autoload -U select-word-style
@@ -102,11 +109,15 @@ alias kns='kubectl config set-context $(kubectl config current-context) --namesp
 alias kgp='kubectl get pod'
 
 # GPG
-AGENT_SOCK=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
-if [[ ! -S $AGENT_SOCK ]]; then
-	gpg-agent --daemon --use-standard-socket &>/dev/null
+if command -v gpgconf gpg-agent >/dev/null; then
+	AGENT_SOCK=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
+	if [[ ! -S $AGENT_SOCK ]]; then
+		gpg-agent --daemon --use-standard-socket &>/dev/null
+	fi
+	export GPG_TTY=$TTY
+elif [[ "$FRIGUS02_ZSH_PROFILE_DEBUG" != false ]]; then
+	echo "required for gpg: gpgconf, gog-agent"
 fi
-export GPG_TTY=$TTY
 
 # Editor
 if command -v nvim >/dev/null; then
@@ -115,13 +126,21 @@ fi
 export EDITOR=vim
 
 # fzf
-if [[ -d /usr/share/doc/fzf/examples/ ]]; then
-	source /usr/share/doc/fzf/examples/key-bindings.zsh
-	source /usr/share/doc/fzf/examples/completion.zsh
-fi
 if [[ -f "$HOME/.fzf.zsh" ]]; then
 	source "$HOME/.fzf.zsh"
 fi
+if command -v fzf >/dev/null; then
+	if [[ -d /usr/share/doc/fzf/examples/ ]]; then
+		source /usr/share/doc/fzf/examples/key-bindings.zsh
+		source /usr/share/doc/fzf/examples/completion.zsh
+	fi
+elif [[ "$FRIGUS02_ZSH_PROFILE_DEBUG" != false ]]; then
+	echo "required for fuzzy searches: fzf"
+fi
 
 # curl-history
-source "$scriptpath/modules/curl-history/curl-history.sh"
+if command -v curl fzf rg >/dev/null; then
+	source "$scriptpath/modules/curl-history/curl-history.sh"
+elif [[ "$FRIGUS02_ZSH_PROFILE_DEBUG" != false ]]; then
+	echo "required for curl-history: curl, fzf and rg"
+fi
