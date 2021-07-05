@@ -6,16 +6,18 @@
 
 - ⌥→ Send Escape Sequence Esc+ f
 
-- ⌘← Send Escape Sequence Esc+ [H
+- ⌘← Send Hex Code 0x01
 
-- ⌘→ Send Escape Sequence Esc+ [F
+- ⌘→ Send Hex Code 0x05
 
-- ⌘←Delete Send Hex Code 0x18 0x7f
+- ⌘←Delete Send Hex Code 0x15
 
-- ⌥←Delete Send Hex Code 0x1B 0x08
+- ⌥←Delete Send Hex Code 0x17
 
 - ⌘Del→ Send Hex Code 0x0b
 
 - ⌥Del→ Send Escape Sequence d
 
-https://stackoverflow.com/a/37720002
+Sources:
+- https://stackoverflow.com/a/37720002
+- https://coderwall.com/p/ds2dha/word-line-deletion-and-navigation-shortcuts-in-iterm2
