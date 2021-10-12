@@ -25,6 +25,16 @@ fi
 autoload -U select-word-style
 select-word-style bash
 
+# Key bindings
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^[B" backward-word
+bindkey "^[b" backward-word
+bindkey "^[F" forward-word
+bindkey "^[f" forward-word
+bindkey "^[D" kill-word
+bindkey "^[d" kill-word
+
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
 source "$scriptpath/modules/zsh-autosuggestions/zsh-autosuggestions.zsh"
