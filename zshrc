@@ -30,8 +30,10 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^[B" backward-word
 bindkey "^[b" backward-word
+bindkey "^[[1;5D" backward-word
 bindkey "^[F" forward-word
 bindkey "^[f" forward-word
+bindkey "^[[1;5C" forward-word
 bindkey "^[D" kill-word
 bindkey "^[d" kill-word
 
