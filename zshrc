@@ -30,12 +30,13 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^[B" backward-word
 bindkey "^[b" backward-word
-bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5D" backward-word # WSL
 bindkey "^[F" forward-word
 bindkey "^[f" forward-word
-bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5C" forward-word # WSL
 bindkey "^[D" kill-word
 bindkey "^[d" kill-word
+bindkey "^H" backward-kill-word # WSL
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
