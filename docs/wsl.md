@@ -19,11 +19,15 @@ sudo apt install -y build-essential zsh
 
 ### Set as default shell
 
-WSL always starts `bash`, so we have to tell `bash` to start `zsh`. Put this at the bottom of `~/.bashrc`:
+WSL always starts `bash`, so we have to tell `bash` to start `tmux`/`zsh`. Put this at the bottom of `~/.bashrc`:
 
 ```sh
 if [ -t 1 ]; then
-  exec zsh
+  if [ -z "$TMUX" ]; then
+    exec tmux new -ADs default
+  else
+    exec zsh
+  fi
 fi
 ```
 
