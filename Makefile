@@ -2,7 +2,8 @@
 
 .PHONY: install
 install: modules ## Installs this zsh config
-	./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
+	test -f "$$HOME/.zshrc" || ./scripts/generate-zshrc.sh > "$$HOME/.zshrc"
+	test -f "$$HOME/.tmux.conf" || cp ./tmux.conf "$$HOME/.tmux.conf"
 
 .PHONY: modules
 modules:
