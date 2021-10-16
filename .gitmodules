@@ -16,3 +16,4 @@
 [submodule "modules/curl-history"]
 	path = modules/curl-history
 	url = https://github.com/frigus02/curl-history.git
+	branch = main
