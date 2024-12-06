@@ -139,14 +139,8 @@ fi
 export EDITOR=vim
 
 # fzf
-if [[ -f "$HOME/.fzf.zsh" ]]; then
-	source "$HOME/.fzf.zsh"
-fi
 if command -v fzf >/dev/null; then
-	if [[ -d /usr/share/doc/fzf/examples/ ]]; then
-		source /usr/share/doc/fzf/examples/key-bindings.zsh
-		source /usr/share/doc/fzf/examples/completion.zsh
-	fi
+	source <(fzf --zsh)
 elif [[ "$FRIGUS02_ZSH_PROFILE_DEBUG" != false ]]; then
 	echo "required for fuzzy searches: fzf"
 fi
