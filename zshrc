@@ -69,11 +69,19 @@ setopt SHARE_HISTORY
 export PATH="$HOME/bin:$PATH"
 
 # Git
+function git_main_branch() {
+	if git show-ref -q main; then
+		echo main
+	else
+		echo master
+	fi
+}
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -v'
 alias gcb='git checkout -b'
 alias gco='git checkout'
+alias gcm='git checkout $(git_main_branch)'
 alias gl='git pull'
 alias gp='git push'
 alias gst='git status'
