@@ -1,5 +1,13 @@
 # iTerm
 
+## Appearance
+
+- Appearance -> General -> Theme: Minimal
+- Profiles -> Colors -> Color Presets... (select or import theme, e.g. [Dracula](https://draculatheme.com/iterm))
+- Profiles -> Text -> Font (install a Nerd Font)
+- General -> Window -> Adjust window and changing font size
+- General -> Closing -> Confirm "Quit iTerm2 (⌘Q)"
+
 ## Keys
 
 - ⌥← Send Escape Sequence Esc+ b
