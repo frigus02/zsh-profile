@@ -53,6 +53,22 @@ git config --global user.name ""
 git config --global user.email ""
 ```
 
+### ssh
+
+Install keychain:
+
+```
+sudo apt install -y keychain
+```
+
+Create SSH key.
+
+Add to .zshrc:
+
+```
+eval $(keychain --eval id_ed25519)
+```
+
 ### ls
 
 To improve colors of `ls` for files and directories with 777 permissions, put this in `~/.bashrc`:
